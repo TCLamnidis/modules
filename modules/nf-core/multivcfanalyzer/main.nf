@@ -4,8 +4,8 @@ process MULTIVCFANALYZER {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/multivcfanalyzer:0.85.2--hdfd78af_1':
-        'biocontainers/multivcfanalyzer:0.85.2--hdfd78af_1' }"
+        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/83/83ae9e52b1c7d8dfec31c1e045908153c9c575b212f0d89c56885315f51d98d3/data':
+        'community.wave.seqera.io/library/htslib_multivcfanalyzer:71bddf4ac37aff5b' }"
 
     input:
     tuple val(meta), path(vcfs)
@@ -32,7 +32,7 @@ process MULTIVCFANALYZER {
     tuple val(meta), path('structureGenotypes.tsv')                       , emit: structure_genotypes
     tuple val(meta), path('structureGenotypes_noMissingData-Columns.tsv') , emit: structure_genotypes_nomissing
     tuple val(meta), path('MultiVCFAnalyzer.json')                        , emit: json
-    path "versions.yml"                                  , emit: versions
+    path "versions.yml"                                                   , emit: versions_multivcfanalyzer, topic: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -60,7 +60,7 @@ process MULTIVCFANALYZER {
         ${cmd_gff_exclude}  \\
         ${vcfs.sort().join(" ")}
 
-    gzip \\
+    bgzip \\
         $args2 \\
         fullAlignment.fasta snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta
 
