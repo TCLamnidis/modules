@@ -218,7 +218,7 @@ output:
       - multivcfanalyzer:
           type: string
           description: The name of the tool
-      - multivcfanalyzer --version:
+      - multivcfanalyzer -h | head -n 1 | cut -f 3 -d " ":
           type: eval
           description: The expression to obtain the version of the tool
   versions_tabix:
@@ -228,7 +228,7 @@ output:
       - tabix:
           type: string
           description: The name of the tool
-      - tabix --version:
+      - tabix -h | grep Version | cut -f 2 -d " ":
           type: eval
           description: The expression to obtain the version of the tool
 topics:
@@ -239,7 +239,7 @@ topics:
       - multivcfanalyzer:
           type: string
           description: The name of the tool
-      - multivcfanalyzer --version:
+      - multivcfanalyzer -h | head -n 1 | cut -f 3 -d " ":
           type: eval
           description: The expression to obtain the version of the tool
     - - ${task.process}:
@@ -248,7 +248,7 @@ topics:
       - tabix:
           type: string
           description: The name of the tool
-      - tabix --version:
+      - tabix -h | grep Version | cut -f 2 -d " ":
           type: eval
           description: The expression to obtain the version of the tool
 authors:
