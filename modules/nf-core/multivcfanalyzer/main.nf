@@ -32,8 +32,8 @@ process MULTIVCFANALYZER {
     tuple val(meta), path('structureGenotypes.tsv')                                           , emit: structure_genotypes
     tuple val(meta), path('structureGenotypes_noMissingData-Columns.tsv')                     , emit: structure_genotypes_nomissing
     tuple val(meta), path('MultiVCFAnalyzer.json')                                            , emit: json
-    tuple val("${task.process}"), val('multivcfanalyzer'), eval('multivcfanalyzer --version') , emit: versions_multivcfanalyzer, topic: versions
-    tuple val("${task.process}"), val('tabix'), eval('tabix --version')                       , emit: versions_tabix, topic: versions
+    tuple val("${task.process}"), val('multivcfanalyzer'), eval('multivcfanalyzer -h | head -n 1 | cut -f 3 -d " "') , emit: versions_multivcfanalyzer, topic: versions
+    tuple val("${task.process}"), val('tabix')           , eval('tabix -h | grep Version | cut -f 2 -d " "')         , emit: versions_tabix           , topic: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -67,7 +67,7 @@ process MULTIVCFANALYZER {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        multivcfanalyzer: \$(echo \$(multivcfanalyzer --help | head -n 1) | cut -f 3 -d ' ' )
+        multivcfanalyzer: \$(multivcfanalyzer --help | head -n 1 | cut -f 3 -d " ")
         tabix: \$(echo \$(tabix -h 2>&1) | sed 's/^.*Version: //; s/ .*\$//')
     END_VERSIONS
     """
@@ -95,7 +95,8 @@ process MULTIVCFANALYZER {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        multivcfanalyzer: \$(echo \$(multivcfanalyzer --help | head -n 1) | cut -f 3 -d ' ' )
+        multivcfanalyzer: \$(multivcfanalyzer --help | head -n 1 | cut -f 3 -d " ")
+        tabix: \$(tabix --help | grep Version | cut -f 2 -d " ")
     END_VERSIONS
 
     """
