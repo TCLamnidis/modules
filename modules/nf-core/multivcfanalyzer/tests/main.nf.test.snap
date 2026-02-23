@@ -14,11 +14,15 @@
                     {
                         "id": "testVCF"
                     },
-                    "MultiVCFAnalyzer.json:md5,daefb8c4e625937811b922b41897ec5b"
+                    "MultiVCFAnalyzer.json:md5,7f5f3689749cbcf65c45237623ba40ae"
                 ]
             ],
             [
-                "versions.yml:md5,a6396cc3f9329c54598fc5dd867cc4d2"
+                [
+                    "MULTIVCFANALYZER",
+                    "multivcfanalyzer",
+                    "0.88.1"
+                ]
             ],
             true,
             true,
@@ -34,7 +38,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-23T14:57:38.124818"
+        "timestamp": "2026-02-23T16:47:20.266476"
     },
     "sarscov2 - vcf - stub": {
         "content": [
@@ -64,7 +68,18 @@
                     ]
                 ],
                 "11": [
-                    "versions.yml:md5,a6396cc3f9329c54598fc5dd867cc4d2"
+                    [
+                        "MULTIVCFANALYZER",
+                        "multivcfanalyzer",
+                        "0.88.1"
+                    ]
+                ],
+                "12": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "tabix",
+                        "1.23"
+                    ]
                 ],
                 "2": [
                     [
@@ -219,7 +234,18 @@
                     ]
                 ],
                 "versions_multivcfanalyzer": [
-                    "versions.yml:md5,a6396cc3f9329c54598fc5dd867cc4d2"
+                    [
+                        "MULTIVCFANALYZER",
+                        "multivcfanalyzer",
+                        "0.88.1"
+                    ]
+                ],
+                "versions_tabix": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "tabix",
+                        "1.23"
+                    ]
                 ]
             }
         ],
@@ -227,6 +253,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-23T14:53:58.567569"
+        "timestamp": "2026-02-23T16:48:48.98438"
     }
 }
