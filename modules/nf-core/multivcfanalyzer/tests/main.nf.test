@@ -67,7 +67,7 @@ nextflow_process {
             assertAll(
                 { assert process.success },
                 { assert snapshot(
-                    process.out.findAll { key, val -> key.startsWith("versions")}
+                    process.out.findAll { key, val -> key.startsWith("versions")},
                     process.out.snptable_snpeff,
                     process.out.json,
                     file(process.out.info_txt[0][1]).readLines().any { it.contains('Run finished:') },
@@ -144,7 +144,7 @@ nextflow_process {
             assertAll(
                 { assert process.success },
                 { assert snapshot(
-                    process.out
+                    process.out,
                     process.out.findAll { key, val -> key.startsWith("versions")}
                     ).match() }
             )
