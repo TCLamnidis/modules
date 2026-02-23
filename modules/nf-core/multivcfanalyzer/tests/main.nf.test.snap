@@ -1,6 +1,22 @@
 {
     "sarscov2 - vcf": {
         "content": [
+            {
+                "versions_multivcfanalyzer": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "multivcfanalyzer",
+                        "0.88.1"
+                    ]
+                ],
+                "versions_tabix": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "tabix",
+                        "1.23"
+                    ]
+                ]
+            },
             [
                 [
                     {
@@ -17,13 +33,6 @@
                     "MultiVCFAnalyzer.json:md5,7f5f3689749cbcf65c45237623ba40ae"
                 ]
             ],
-            [
-                [
-                    "MULTIVCFANALYZER",
-                    "multivcfanalyzer",
-                    "0.88.1"
-                ]
-            ],
             true,
             true,
             false,
@@ -38,7 +47,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-23T16:47:20.266476"
+        "timestamp": "2026-02-23T17:07:46.145105"
     },
     "sarscov2 - vcf - stub": {
         "content": [
@@ -247,12 +256,28 @@
                         "1.23"
                     ]
                 ]
+            },
+            {
+                "versions_multivcfanalyzer": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "multivcfanalyzer",
+                        "0.88.1"
+                    ]
+                ],
+                "versions_tabix": [
+                    [
+                        "MULTIVCFANALYZER",
+                        "tabix",
+                        "1.23"
+                    ]
+                ]
             }
         ],
         "meta": {
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-23T16:48:48.98438"
+        "timestamp": "2026-02-23T17:08:05.521239"
     }
 }
