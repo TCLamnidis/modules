@@ -64,12 +64,6 @@ process MULTIVCFANALYZER {
     bgzip \\
         ${args2} \\
         fullAlignment.fasta snpAlignment.fasta snpAlignmentIncludingRefGenome.fasta
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        multivcfanalyzer: \$(multivcfanalyzer --help | head -n 1 | cut -f 3 -d " ")
-        tabix: \$(echo \$(tabix -h 2>&1) | sed 's/^.*Version: //; s/ .*\$//')
-    END_VERSIONS
     """
     stub:
 
@@ -92,12 +86,5 @@ process MULTIVCFANALYZER {
     touch structureGenotypes.tsv
     touch structureGenotypes_noMissingData-Columns.tsv
     touch MultiVCFAnalyzer.json
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        multivcfanalyzer: \$(multivcfanalyzer --help | head -n 1 | cut -f 3 -d " ")
-        tabix: \$(tabix --help | grep Version | cut -f 2 -d " ")
-    END_VERSIONS
-
     """
 }
