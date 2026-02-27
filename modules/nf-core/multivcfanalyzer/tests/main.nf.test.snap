@@ -25,14 +25,34 @@
                     "snpTableForSnpEff.tsv:md5,8d7ab4ec98a89d290e301d6feae461aa"
                 ]
             ],
-            [
-                [
-                    {
-                        "id": "testVCF"
-                    },
-                    "MultiVCFAnalyzer.json:md5,7f5f3689749cbcf65c45237623ba40ae"
-                ]
-            ],
+            {
+                "test.vcf.gz": {
+                    "SNP Calls (all)": 1,
+                    "SNP Calls (het)": 0,
+                    "coverage (fold)": 0.0,
+                    "coverage (percent)": 0.010000000000005116,
+                    "refCall": 0,
+                    "allPos": 18807,
+                    "noCall": 0,
+                    "discardedRefCall": 0,
+                    "discardedVarCall": 0,
+                    "filteredVarCall": 0,
+                    "unhandledGenotype": 0
+                },
+                "test2.vcf.gz": {
+                    "SNP Calls (all)": 0,
+                    "SNP Calls (het)": 0,
+                    "coverage (fold)": 0.0,
+                    "coverage (percent)": 100.0,
+                    "refCall": 0,
+                    "allPos": 0,
+                    "noCall": 0,
+                    "discardedRefCall": 0,
+                    "discardedVarCall": 0,
+                    "filteredVarCall": 0,
+                    "unhandledGenotype": 0
+                }
+            },
             true,
             true,
             false,
@@ -47,7 +67,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-23T17:07:46.145105"
+        "timestamp": "2026-02-27T11:00:36.173109"
     },
     "sarscov2 - vcf - stub": {
         "content": [

@@ -69,7 +69,7 @@ nextflow_process {
                 { assert snapshot(
                     process.out.findAll { key, val -> key.startsWith("versions")},
                     process.out.snptable_snpeff,
-                    process.out.json,
+                    path(process.out.json[0][1]).json.metrics.sort(),
                     file(process.out.info_txt[0][1]).readLines().any { it.contains('Run finished:') },
                     file(process.out.full_alignment[0][1]).readLines().any { it.contains('>') },
                     file(process.out.snp_alignment[0][1]).readLines().any { it.contains('>') },
