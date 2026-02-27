@@ -33,7 +33,7 @@ process MULTIVCFANALYZER {
     tuple val(meta), path('structureGenotypes_noMissingData-Columns.tsv')                     , emit: structure_genotypes_nomissing
     tuple val(meta), path('MultiVCFAnalyzer.json')                                            , emit: json
     tuple val("${task.process}"), val('multivcfanalyzer'), eval('multivcfanalyzer -h | head -n 1 | cut -f 3 -d " "') , emit: versions_multivcfanalyzer, topic: versions
-    tuple val("${task.process}"), val('tabix')           , eval('tabix -h 2>&1 | grep Version | cut -f 2 -d " "')         , emit: versions_tabix           , topic: versions
+    tuple val("${task.process}"), val('tabix'),            eval('tabix -h 2>&1 | grep Version | cut -f 2 -d " "')    , emit: versions_tabix           , topic: versions
 
     when:
     task.ext.when == null || task.ext.when
