@@ -106,8 +106,8 @@ output:
             files i.e. including ref calls
           pattern: ".fasta.gz"
           ontologies:
-            - edam: http://edamontology.org/format_3615 # BGZIP
-            - edam: http://edamontology.org/format_3989 # GZIP
+            - edam: http://edamontology.org/format_3615
+            - edam: http://edamontology.org/format_3989
   info_txt:
     - - meta:
           type: map
@@ -126,8 +126,8 @@ output:
           description: A fasta file of just SNP positions with samples only
           pattern: ".fasta.gz"
           ontologies:
-            - edam: http://edamontology.org/format_3615 # BGZIP
-            - edam: http://edamontology.org/format_3989 # GZIP
+            - edam: http://edamontology.org/format_3615
+            - edam: http://edamontology.org/format_3989
   snp_genome_alignment:
     - - meta:
           type: map
@@ -137,8 +137,8 @@ output:
           description: A fasta file of just SNP positions with reference genome
           pattern: ".fasta.gz"
           ontologies:
-            - edam: http://edamontology.org/format_3615 # BGZIP
-            - edam: http://edamontology.org/format_3989 # GZIP
+            - edam: http://edamontology.org/format_3615
+            - edam: http://edamontology.org/format_3989
   snpstatistics:
     - - meta:
           type: map
@@ -148,7 +148,7 @@ output:
           description: Some basic statistics about the SNP calls of each sample
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   snptable:
     - - meta:
           type: map
@@ -159,7 +159,7 @@ output:
             file
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   snptable_snpeff:
     - - meta:
           type: map
@@ -169,7 +169,7 @@ output:
           description: Input file for SnpEff
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   snptable_uncertainty:
     - - meta:
           type: map
@@ -180,7 +180,7 @@ output:
             uncertain calls
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   structure_genotypes:
     - - meta:
           type: map
@@ -190,7 +190,7 @@ output:
           description: Input file for STRUCTURE
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   structure_genotypes_nomissing:
     - - meta:
           type: map
@@ -200,7 +200,7 @@ output:
           description: Alternate input file for STRUCTURE
           pattern: ".tsv"
           ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3475
   json:
     - - meta:
           type: map
@@ -210,7 +210,7 @@ output:
           description: Summary statistics in MultiQC JSON format
           pattern: ".json"
           ontologies:
-            - edam: http://edamontology.org/format_3464 # JSON
+            - edam: http://edamontology.org/format_3464
   versions_multivcfanalyzer:
     - - ${task.process}:
           type: string
@@ -219,7 +219,7 @@ output:
           type: string
           description: The name of the tool
       - multivcfanalyzer -h | head -n 1 | cut -f 3 -d " ":
-          type: string
+          type: eval
           description: The expression to obtain the version of the tool
   versions_tabix:
     - - ${task.process}:
@@ -229,7 +229,7 @@ output:
           type: string
           description: The name of the tool
       - tabix -h 2>&1 | grep Version | cut -f 2 -d " ":
-          type: string
+          type: eval
           description: The expression to obtain the version of the tool
 topics:
   versions:
@@ -240,7 +240,7 @@ topics:
           type: string
           description: The name of the tool
       - multivcfanalyzer -h | head -n 1 | cut -f 3 -d " ":
-          type: string
+          type: eval
           description: The expression to obtain the version of the tool
     - - ${task.process}:
           type: string
@@ -249,9 +249,10 @@ topics:
           type: string
           description: The name of the tool
       - tabix -h 2>&1 | grep Version | cut -f 2 -d " ":
-          type: string
+          type: eval
           description: The expression to obtain the version of the tool
 authors:
   - "@jfy133"
 maintainers:
   - "@jfy133"
+  - "@TCLamnidis"
